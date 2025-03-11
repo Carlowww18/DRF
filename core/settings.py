@@ -135,7 +135,18 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 2
+    'PAGE_SIZE': 2,
+    
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '2/minute', #second.day.month.year
+        'user': '3/minute'
+    }
 }
 
-#'1ea57ac723d42332094fd5d2742734504eb3b364'
+#'  1ea57ac723d42332094fd5d2742734504eb3b364  '
+
+#'  a3e25fdfdc9174f7c5aef3676e1a900768288457  '
